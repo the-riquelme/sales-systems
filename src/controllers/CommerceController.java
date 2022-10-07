@@ -3,6 +3,7 @@ package controllers;
 import java.util.ArrayList;
 
 import models.CommerceModel;
+import models.ProductModel;
 
 public class CommerceController {
 
@@ -20,6 +21,20 @@ public class CommerceController {
     this.commerce.setCash(result);
 
     return true;
+  }
+
+  public void receiveProducts(ArrayList<ProductModel> products) {
+    for (ProductModel product : products) {
+      this.commerce.setInventory(product);
+    }
+  }
+
+  public ArrayList<ProductModel> provideProducts(ArrayList<ProductModel> requestedProducts) {
+    return this.commerce.getProductsInInventory(requestedProducts);
+  }
+
+  public void receivePayment(double payment) {
+    this.commerce.setCash(payment);
   }
 
 }

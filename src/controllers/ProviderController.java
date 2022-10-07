@@ -17,4 +17,8 @@ public class ProviderController {
     return this.provider.getProductsInInventory(requestedProducts);
   }
 
+  public void receivePayment(double payment) {
+    this.provider.setRevenue(payment);
+  }
+
 }
